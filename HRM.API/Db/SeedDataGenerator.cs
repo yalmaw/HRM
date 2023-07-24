@@ -19,6 +19,7 @@ namespace HRM.API.Db
                 context.Employees.AddRange(
                     new Employee
                     {
+                        Id = 1,
                         Name = "Md. Mahedee Hasan",
                         Designation = "Head of Software Development",
                         FathersName = "Yeasin Bhuiyan",
@@ -28,6 +29,7 @@ namespace HRM.API.Db
 
                     new Employee
                     {
+                        Id=2,
                         Name = "Khaleda Islam",
                         Designation = "Software Engineer",
                         FathersName = "Shahidul Islam",
@@ -37,6 +39,7 @@ namespace HRM.API.Db
 
                     new Employee
                     {
+                        Id=3,
                         Name = "Tahiya Hasan Arisha",
                         Designation = "Jr. Software Engineer",
                         FathersName = "Md. Mahedee Hasan",
@@ -46,6 +49,7 @@ namespace HRM.API.Db
 
                     new Employee
                     {
+                        Id=4,
                         Name = "Humaira Hasan",
                         Designation = "Jr. Software Engineer",
                         FathersName = "Md. Mahedee Hasan",

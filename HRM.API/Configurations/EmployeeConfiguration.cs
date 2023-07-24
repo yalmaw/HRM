@@ -11,6 +11,7 @@ namespace HRM.API.Configurations
             builder.HasData(
                 new Employee
                 {
+                    Id=10,
                     Name = "Md. Mahedee Hasan",
                     Designation = "Head of Software Development",
                     FathersName = "Yeasin Bhuiyan",
@@ -21,6 +22,8 @@ namespace HRM.API.Configurations
 
                     new Employee
                     {
+                        Id = 11,
+
                         Name = "Khaleda Islam",
                         Designation = "Software Engineer",
                         FathersName = "Shahidul Islam",
@@ -30,6 +33,7 @@ namespace HRM.API.Configurations
 
                     new Employee
                     {
+                        Id=12,
                         Name = "Tahiya Hasan Arisha",
                         Designation = "Jr. Software Engineer",
                         FathersName = "Md. Mahedee Hasan",
@@ -39,6 +43,7 @@ namespace HRM.API.Configurations
 
                     new Employee
                     {
+                        Id= 13,
                         Name = "Humaira Hasan",
                         Designation = "Jr. Software Engineer",
                         FathersName = "Md. Mahedee Hasan",
