@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    environment {
+         
+         dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'   
+    }
+    stages {
+        stage('Checkout Stage') {
+            steps {
+                git credentialsId: '8e3babfe-eb51-479e-b956-7a12427dc4e9', url: 'https://github.com/yalmaw/HRM.git', branch: 'master'
+            }
+        }
+        stage('Build') {
+            steps {
+                 bat 'dotnet build C:\\Jenkins_Demo\\HRM\\HRMJ\\HRM.sln --configuration Release' 
+            }
+        }
+        stage('Test') {  
+            steps {  
+               bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
+        }
+        }
+        stage("Release"){
+      steps {
+      bat 'dotnet build C:\\Jenkins_Demo\\HRM\\HRMJ\\HRM.sln /p:PublishProfile=" C:\\Jenkins_Demo\\HRM\\HRM\\HRM.API\\Properties\\PublishProfiles\\JenkinsProfile.pubxml" /p:Platform="Any CPU" /p:DeployOnBuild=true /m'
+    }
+  }
+  }
+  }
