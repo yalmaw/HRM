@@ -5,9 +5,10 @@
     <Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>47512296-9a25-4131-a595-65c5d4d2baa7</UserSecretsId>
-		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	
 	
 	</PropertyGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="jenkinsnet" Version="1.0.4" />

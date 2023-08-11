@@ -20,10 +20,6 @@ pipeline {
                bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
         }
         }
-        stage("Release"){
-      steps {
-      bat 'dotnet build C:\\Jenkins_Demo\\HRM\\HRMJ\\HRM.sln /p:PublishProfile=" C:\\Jenkins_Demo\\HRM\\HRM\\HRM.API\\Properties\\PublishProfiles\\JenkinsProfile.pubxml" /p:Platform="Any CPU" /p:DeployOnBuild=true /m'
-    }
-  }
+        
   }
   }
