@@ -23,7 +23,7 @@ pipeline {
          stage('Build Image') {
   steps {
     script {
-      bat 'docker build -t hrmtest/hrm.api .'
+      bat 'docker build -t C:\\Jenkins_Demo\\HRM\\HRMJ\HRM.API\Dockerfile\hrmtest\hrm.api .'
     }
   }
  }
