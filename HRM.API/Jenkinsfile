@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-         
+         IMAGE_REPO_NAME='sample'
+         IMAGE_TAG='v1'
          dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'   
     }
     stages {
@@ -20,6 +21,13 @@ pipeline {
                bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
         }
         }
-
+       
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+        }
+      }
+    }
   }
   }
