@@ -20,12 +20,6 @@ pipeline {
                bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
         }
         }
-         stage('Build Image') {
-  steps {
-    script {
-      sh 'docker build -t hrmtest/hrm.api .'
-    }
-  }
- }
+
   }
   }
