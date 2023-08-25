@@ -20,61 +20,6 @@ pipeline {
                bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
         }
         }
-          stage('Deployment') {
-      steps {
-        // This stage assumes you perform the deployment with Octopus Deploy.
-        // The steps shown below can be replaced with your own custom steps to deploy to other platforms if needed.
-        octopusPushPackage(additionalArgs: '',
-          packagePaths: env.ARTIFACTS.split(":").join("\n"),
-          overwriteMode: 'OverwriteExisting',
-          serverId: params.ServerId,
-          spaceId: params.SpaceId,
-          toolId: 'Default')
-        octopusPushBuildInformation(additionalArgs: '',
-          commentParser: 'GitHub',
-          overwriteMode: 'OverwriteExisting',
-          packageId: env.ARTIFACTS.split(":")[0].substring(env.ARTIFACTS.split(":")[0].lastIndexOf("/") + 1, env.ARTIFACTS.split(":")[0].length()).replaceAll("\\." + env.VERSION_SEMVER + "\\..+", ""),
-          packageVersion: env.VERSION_SEMVER,
-          serverId: params.ServerId,
-          spaceId: params.SpaceId,
-          toolId: 'Default',
-          verboseLogging: false,
-          gitUrl: env.GIT_URL,
-          gitCommit: env.GIT_COMMIT,
-          gitBranch: env.GIT_BRANCH)
-        octopusCreateRelease(additionalArgs: '',
-          cancelOnTimeout: false,
-          channel: '',
-          defaultPackageVersion: '',
-          deployThisRelease: false,
-          deploymentTimeout: '',
-          environment: params.EnvironmentName,
-          jenkinsUrlLinkback: false,
-          project: params.ProjectName,
-          releaseNotes: false,
-          releaseNotesFile: '',
-          releaseVersion: env.VERSION_SEMVER,
-          serverId: params.ServerId,
-          spaceId: params.SpaceId,
-          tenant: '',
-          tenantTag: '',
-          toolId: 'Default',
-          verboseLogging: false,
-          waitForDeployment: false)
-        octopusDeployRelease(cancelOnTimeout: false,
-          deploymentTimeout: '',
-          environment: params.EnvironmentName,
-          project: params.ProjectName,
-          releaseVersion: env.VERSION_SEMVER,
-          serverId: params.ServerId,
-          spaceId: params.SpaceId,
-          tenant: '',
-          tenantTag: '',
-          toolId: 'Default',
-          variables: '',
-          verboseLogging: false,
-          waitForDeployment: true)
-      }
-    }
+         
   }
   }
