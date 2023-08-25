@@ -20,6 +20,13 @@ pipeline {
                bat 'dotnet test C:\\Jenkins_Demo\\HRM\\hrmj\\UnitTest1\\UnitTest1.csproj --logger:trx' 
         }
         }
-         
+         stage('Build Image') {
+  steps {
+    script {
+      image = docker.build "HRM.API-$BRANCH_NAME:$BUILD_NUMBER"
+      image.tag('latest')
+    }
+  }
+}  
   }
   }
