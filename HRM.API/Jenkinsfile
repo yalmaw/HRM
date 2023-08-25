@@ -23,7 +23,7 @@ pipeline {
          stage('Build Image') {
   steps {
     script {
-      bat 'docker build -t hrmtest/HRM.API .'
+      bat 'docker build -t hrmtest/hrm.api .'
     }
   }
  }
