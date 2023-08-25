@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-         IMAGE_REPO_NAME='sample'
-         IMAGE_TAG='v1'
+         IMAGE_REPO_NAME="C:\Jenkins_Demo\HRM\HRMJ\HRM.API\"
+         IMAGE_TAG="v1"
          dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'   
     }
     stages {
